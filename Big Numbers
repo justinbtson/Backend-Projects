@@ -1,0 +1,53 @@
+def addBig(num1, num2)
+  # your magic here
+  array1 = []
+  array2 = []
+  
+  for i in 0..(num1.length - 1)
+    array1.append(num1[i].to_i)
+  end
+  
+  for i in 0..(num2.length - 1)
+    array2.append(num2[i].to_i)
+  end
+
+  array1 = array1.reverse()
+  array2 = array2.reverse()
+  
+  if array1.length > array2.length
+    for i in 0..(array2.length - 1)
+      array1[i] = array1[i].to_i + array2[i].to_i
+    end
+  else
+    for i in 0..(array1.length - 1)
+      array2[i] = array1[i].to_i + array2[i].to_i
+    end
+  end
+
+  array1 = array1.reverse()
+  array2 = array2.reverse()
+  result = 0
+  
+  if array1.length > array2.length
+    for i in 0..(array1.length - 1)
+      array1[i] = array1[i] * 10 ** (array1.length - i - 1)
+	  end
+    for i in 0..(array1.length - 1)
+      result += array1[i]
+    end
+  else
+    for i in 0..(array2.length - 1)
+      array2[i] = array2[i] * 10 ** (array2.length - i - 1)
+	  end
+    for i in 0..(array2.length - 1)
+      result += array2[i]
+    end
+  end
+    result = result.to_s
+    return result
+  end
+
+a = "25256262652562";
+b = "8790087923478963673763168867989797";
+
+puts addBig(a, b) == "8790087923478963673788425130642359"
