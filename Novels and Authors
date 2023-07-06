@@ -1,0 +1,26 @@
+class Book
+  attr_accessor :title, :year, :authors
+
+  def initialize(title, year, authors)
+    # write your code here
+    @title = title
+    @year = year
+    @authors = authors
+  end
+
+  def add_author(name)
+    # write your code here
+    authors.append(name)
+  end
+
+  def remove_author(name)
+    # write your code here
+    for i in (0..authors.length - 1)
+      if authors[i] == name
+        authors.delete(name)
+        return "#{name} deleted"
+      end
+    end
+    return "#{name} not found in authors"
+  end
+end
