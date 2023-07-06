@@ -1,0 +1,58 @@
+def score(dice)
+  # You need to write this method
+  one_count = 0
+  two_count = 0
+  three_count = 0
+  four_count = 0
+  five_count = 0
+  six_count = 0
+  points = 0
+  
+  for i in 0..(dice.length - 1)
+    if dice[i] == 1
+      one_count += 1
+    elsif dice[i] == 2
+      two_count += 1
+    elsif dice[i] == 3
+      three_count += 1
+    elsif dice[i] == 4
+      four_count += 1
+    elsif dice[i] == 5
+      five_count += 1
+    else
+      six_count += 1
+    end
+  end
+  
+  if one_count >= 3
+    points = 1000 + (100 * (one_count - 3))
+  else
+    points = 100 * one_count
+  end
+  
+  if two_count >= 3
+    points += 200
+  end
+  
+  if three_count >= 3
+    points += 300 
+  end
+  
+  if four_count >= 3
+    points += 400
+  end
+  
+  if five_count >= 3
+    points += 500 + (50 * (five_count - 3))
+  end
+  
+  if five_count < 3
+    points += 50 * (five_count)
+  end
+  
+  if six_count >= 3
+    points += 600
+  end
+  
+  return points
+end
