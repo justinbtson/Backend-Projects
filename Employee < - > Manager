@@ -1,0 +1,39 @@
+class Employee
+  attr_accessor :name, :salary, :days_of_annual_leave
+
+  def initialize(name, salary, days_of_annual_leave)
+    # write your code here
+    @name = name
+    @salary = salary
+    @days_of_annual_leave
+  end
+end
+
+class Manager
+  attr_accessor :name, :employees
+
+  def initialize(name, employees)
+    # write your code here
+    @name = name
+    @employees = employees
+  end
+  
+  def add_employee(employee)
+    # write your code here
+    for i in 0..(employees.length - 1)
+      if employees[i] == employee
+        return "Employee #{employee.name} already exists" 
+      end
+    end
+    employees.append(employee)
+    return "Employee #{employee.name} added"
+  end
+
+  def change_employee_leave(employee, days_of_annual_leave)
+    # write your code here
+    if employees.any? { |e| e.name == employee.name }
+      return "New days of annual leave for #{employee.name} is #{days_of_annual_leave} days"
+    end
+    return "Employee #{employee.name} is not #{name}'s direct reportee"
+  end
+end
