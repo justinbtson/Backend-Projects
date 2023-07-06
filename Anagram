@@ -1,0 +1,25 @@
+def anagrams(str)
+	# input your magic here
+	
+	return [str] if str.length == 1
+
+  permutations = []
+
+  str.chars.each_with_index do |char, index|
+    remaining_chars = str[0...index] + str[index+1..-1]
+
+    sub_permutations = anagrams(remaining_chars)
+
+    sub_permutations.each do |sub_permutation|
+      permutations << char + sub_permutation
+    end
+  end
+
+  
+  permutations = permutations.uniq
+  return permutations.sort()
+end
+
+print anagrams("fur")
+# print anagrams("abcc")
+# print anagrams("peace")
