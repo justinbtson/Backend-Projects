@@ -1,0 +1,21 @@
+class Animal
+  attr_accessor :name, :type, :sound
+
+  def initialize(name:, type:, sound:)
+    # write your code here
+    @name = name
+    @type = type
+    @sound = sound
+  end
+  
+  def make_noise
+    # write your code here
+    return sound
+  end
+end
+
+class Human < Animal
+end
+
+class Dog < Animal
+end
