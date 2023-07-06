@@ -1,0 +1,37 @@
+def additivePersistence(number)
+  # input your magic here
+  # feel free to modify the input/parameters to suit your program
+  count = 0
+  
+  if number > 0 and number < 10
+    return count
+  end
+  
+  number = number.to_s
+  result = 0
+  num_array = []
+
+  for i in 0..(number.length - 1)
+    num_array.append(number[i].to_i)
+  end
+
+  until (result < 10) and (result != 0)
+    result = 0
+    
+    for i in 0..(num_array.length - 1)
+      result += num_array[i]
+    end
+    count += 1
+    number = result
+	  number = number.to_s
+    num_array = []
+
+	  for i in 0..(number.length - 1)
+  	  num_array.append(number[i].to_i)
+	  end
+	end
+  return count
+end
+
+puts additivePersistence(2718)
+puts additivePersistence(35786)
