@@ -1,0 +1,16 @@
+class DiceSet
+  # Implement the DiceSet Class below
+  attr_accessor :values
+  
+  def initialize()
+    @values = []
+  end
+  
+  def roll(number)
+    @values = []
+    for i in 0..(number - 1)
+      @values.append(rand(1..6))
+    end
+  end
+    
+end
