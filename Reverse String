@@ -1,0 +1,14 @@
+def isPalindrome(string)
+  # your magic
+  # return true if the string is a palindrome, otherwise return false
+  if string.reverse.downcase == string.downcase
+    return true
+  else
+    return false
+  end
+
+end
+
+puts isPalindrome("anna")
+puts isPalindrome("Ruby")
+puts isPalindrome("nOoN")
