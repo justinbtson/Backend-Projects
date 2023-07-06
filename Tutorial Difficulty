@@ -1,0 +1,66 @@
+$allLevels = ['easy', 'medium', 'advanced', 'expert']
+
+class Course
+  attr_accessor :name, :tutorials
+
+  def initialize(name, tutorials)
+    # write your code here
+    @name = name
+    @tutorials = tutorials
+  end
+
+  def add_tutorial(tutorial)
+    # write your code here
+    for i in 0..(tutorials.length - 1)
+      if tutorials[i] == tutorial
+        return "Tutorial level: #{tutorial.level} already exists"
+      end
+    end
+    tutorials.append(tutorial)
+    return "Tutorial level: #{tutorial.level} added"
+  end
+
+  def remove_tutorial(tutorial)
+    # write your code here
+    for i in 0..(tutorials.length - 1)
+      if tutorials[i] == tutorial
+        tutorials.delete(tutorial)
+        return "Tutorial level: #{tutorial.level} deleted"
+      end
+    end
+    return "Tutorial level: #{tutorial.level} does not exist"
+  end
+
+  def is_tut_harder_than?(tut1, tut2)
+    # write your code here
+    if tut1.level == tut2.level
+      return "They are the same level"
+    elsif tut1.level == 'easy'
+      return false
+    elsif tut1.level == 'medium' and (tut2.level == 'easy' or tut2.level == 'advanced' or tut2.level == 'expert')
+      if tut2.level == 'easy'
+        return true
+      else
+        return false
+      end
+    elsif tut1.level == 'advanced' and (tut2.level == 'easy' or tut2.level == 'medium' or tut2.level == 'expert')
+      if tut2.level == 'expert'
+        return false
+      else
+        return true
+      end
+    else
+      return true
+    end
+      
+  end
+end
+
+class Tutorial
+  attr_accessor :level
+
+  def initialize(level)
+    # write your code here
+    @level = level
+  end
+end
