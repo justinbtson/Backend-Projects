@@ -1,0 +1,22 @@
+def PrimeNumber?(number)
+  # your magic here
+  if number == 1
+    return false
+  elsif number == 2
+    return true
+  end
+  for i in 2..number - 1
+    if number == 1
+      return false
+    elsif number % i == 0
+      return false
+    else 
+      next
+    end
+  end
+  return true
+end
+
+puts PrimeNumber?(13) # true
+puts PrimeNumber?(10) # false
+puts PrimeNumber?(97) # true
