@@ -1,0 +1,29 @@
+def encrypt(message)
+  # your answer
+  array_encrypt = message.split('')
+  for i in (0..array_encrypt.length - 1)
+    array_encrypt[i] = array_encrypt[i].ord + 1
+  end
+  for i in (0..array_encrypt.length - 1)
+    array_encrypt[i] = array_encrypt[i].chr
+  end
+  array_encrypt = array_encrypt.join('')
+  return array_encrypt
+end
+
+def decrypt(message)
+  # your answer
+  array_decrypt = message.split('')
+  for i in (0..array_decrypt.length - 1)
+    array_decrypt[i] = array_decrypt[i].ord - 1
+  end
+  for i in (0..array_decrypt.length - 1)
+    array_decrypt[i] = array_decrypt[i].chr
+  end
+  array_decrypt = array_decrypt.join('')
+  return array_decrypt
+end
+
+encrypted_message = encrypt("hello")
+puts encrypted_message
+puts decrypt(encrypted_message)
