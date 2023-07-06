@@ -1,0 +1,48 @@
+def tripleDouble(num1, num2)
+  # write code here
+  array1 = []
+  array2 = []
+  
+  num1 = num1.to_s
+  num2 = num2.to_s
+  
+  for i in 0..(num1.length - 1)
+    array1.append(num1[i])
+  end
+  
+  for i in 0..(num2.length - 1)
+    array2.append(num2[i])
+  end
+  
+  triple_bool = true
+  double_bool = true
+  
+  for i in 0..(array1.length - 1)
+    if array1[i] == array1[i + 1] and array1[i] == array1[i + 2]
+      triple_bool = true
+      break
+    else
+      triple_bool = false
+    end
+  end
+  
+  for i in 0..(array2.length - 1)
+    if array2[i] == array2[i + 1]
+      double_bool = true
+      break
+    else
+      double_bool = false
+    end
+  end
+  
+  if triple_bool == true and double_bool == true
+    return true
+  else
+    return false
+  end
+  
+  
+end
+
+puts tripleDouble(451999277, 41177722899)
+puts tripleDouble(451927, 41623422345)
